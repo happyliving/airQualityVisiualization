@@ -51,11 +51,16 @@
         .attr('height', height);
 
     load = function(type, id) {
+	/* 
         var filepath = 'https://raw.githubusercontent.com/' +
             'jason2506/Taiwan.TopoJSON/master/topojson/' +
             (type === 'towns' ? 'towns/towns-' + id :
                 (type === 'villages' ? 'villages/villages-' + id :
-                    'counties')) + '.json';
+                    'counties')) + '.json';*/
+	    
+	var filepath = (type === "towns") ? 'towns-' + id :
+			(type === 'villages') ? 'villages-' + id :
+			'counties' + '.json';
 
         d3.json(filepath, function(data) {
             var features = topojson.feature(data, data.objects.map).features,
